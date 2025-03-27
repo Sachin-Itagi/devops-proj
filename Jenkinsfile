@@ -38,6 +38,24 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy application') {
+            steps {
+                script {
+                    sh 'docker compose down'
+                    sh 'docker compose up -d'
+                }
+            }
+        }
+
+        stage('Verify run container') {
+            steps {
+                script {
+                    sh 'docker ps'
+                }
+            }
+        }
+
         stage('Clean the workspace') {
             steps {
                 script {
