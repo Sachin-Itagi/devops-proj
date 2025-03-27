@@ -59,7 +59,7 @@ pipeline {
         stage('Clean the workspace') {
             steps {
                 script {
-                    sh "pwd && ls"
+                    sh "rm -rf *"
                 }
             }
         }
